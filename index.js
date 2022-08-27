@@ -47,15 +47,14 @@ setInterval(() => {
 
     console.log("ETH price :  " + avgEth);
     console.log("\n");
+    io.emit("price", { avgBtc, avgEth });
   }
 }, 1000);
-
 io.on("connection", (socket) => {
-  socket.on("message", (msg) => {
-    io.emit("message", "Hello");
-  });
+  console.log("user connected", socket);
 });
 
-server.listen(3000, () => {
+const port = process.env.PORT || 3000;
+server.listen(port, () => {
   console.log("listening on *:3000");
 });
