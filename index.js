@@ -93,11 +93,11 @@ setInterval(async () => {
     console.log("BTC price :  " + avgBtc);
 
     console.log("ETH price :  " + avgEth);
-    console.log("\n");
     let icpBtc = await work(0);
-    console.log(icpBtc);
     let icpEth = await work(1);
-    console.log(icpEth);
+    console.log("ICP BTH", icpBtc);
+    console.log("ICP ETH", icpEth);
+    console.log("\n");
     io.emit("price", { avgBtc, avgEth, icpBtc, icpEth });
   }
 }, 1000);
